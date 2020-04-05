@@ -20,17 +20,35 @@ election_data_df = pd.read_csv('~/Documents/gitrepos/homework/python-challenge/P
 
 # calculate total number of votes cast
 total_votes = len(election_data_df['Voter ID'])
+print('Election Results:')
+print('--------------------------')
 print(f'Total votes cast: {total_votes}')
+print('--------------------------')
 
 # A complete list of candidates who received votes
 candidates = election_data_df.Candidate.unique()
-print(f'Candidates who recieved votes: {candidates}')
+#print(f'Candidates who recieved votes: {candidates}')
 
 # The total number of votes each candidate won
-khan = election_data_df.Candidate.valuecount()
+votes_per_candidate = election_data_df.Candidate.value_counts()
 
-#'Correy' 'Li' "O'Tooley"
+khan = votes_per_candidate['Khan']
+correy = votes_per_candidate['Correy']
+li = votes_per_candidate['Li']
+o_tooley = votes_per_candidate["O'Tooley"]
 
+khan_percent = (khan / total_votes) * 100
+correy_percent = (correy / total_votes) * 100
+li_percent = (li / total_votes) * 100
+o_tooley_percent = (o_tooley / total_votes) * 100
+
+print('Votes per candidate:')
+print('--------------------------')
+print(f'Khan: {khan} votes ({round(khan_percent, 2)}%)')
+print(f'Correy: {correy} votes ({round(correy_percent,2)}%)')
+print(f'Li: {li} votes ({round(li_percent,2)})%')
+print(f"O'Tooley: {o_tooley} votes ({round(o_tooley_percent,2)}%)")
+print('The winner is Khan')
 
 
 
