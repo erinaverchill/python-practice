@@ -37,6 +37,8 @@ correy = votes_per_candidate['Correy']
 li = votes_per_candidate['Li']
 o_tooley = votes_per_candidate["O'Tooley"]
 
+candidate_votes = [khan,correy,li,o_tooley]
+
 khan_percent = (khan / total_votes) * 100
 correy_percent = (correy / total_votes) * 100
 li_percent = (li / total_votes) * 100
@@ -48,7 +50,15 @@ print(f'Khan: {khan} votes ({round(khan_percent, 2)}%)')
 print(f'Correy: {correy} votes ({round(correy_percent,2)}%)')
 print(f'Li: {li} votes ({round(li_percent,2)})%')
 print(f"O'Tooley: {o_tooley} votes ({round(o_tooley_percent,2)}%)")
-print('The winner is Khan')
+
+if max(candidate_votes) == khan:
+	print('The winner is Khan')
+elif max(candidate_votes) == correy:
+	print('The winner is Correy')
+elif max(candidate_votes) == li:
+	print('The winner is Li')
+else:
+	print("The winner is O'Tooley")
 
 
 
